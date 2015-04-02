@@ -1,0 +1,45 @@
+########################################
+# エイリアス
+
+case ${OSTYPE} in
+    darwin*)
+		alias ll='gls -alh --color=auto'
+		alias ls='gls --color=auto'
+		alias la='gls -a --color=auto'
+		alias rm='rmtrash'
+		# Sublime Text
+		alias subl='/Applications/Sublime\ Text\.app/Contents/SharedSupport/bin/subl'
+		# DNSFlush
+		alias dnsflush='dscacheutil -flushcache;sudo killall -HUP mDNSResponder'
+		# .DS_Storeを削除する
+		alias nods='find . -name .DS_Store | xargs rm'
+		# SVN
+		alias svn='/usr/local/bin/colorsvn'
+		;;
+	linux*)
+		;;
+esac
+
+# clear display
+alias cls='clear'
+
+alias cp='cp -i'
+alias mv='mv -i'
+
+alias mkdir='mkdir -p'
+
+# Git
+alias g='git'
+alias gs='git status'
+alias ga='git add .'
+alias gc='git commit'
+alias gf='git fetch'
+alias gch='git checkout'
+alias gb='git branch'
+alias gl='git log'
+alias gd='git diff'
+alias gsh='git show'
+
+# sudo の後のコマンドでエイリアスを有効にする
+alias sudo='sudo '
+

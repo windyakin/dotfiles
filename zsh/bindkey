@@ -1,0 +1,12 @@
+########################################
+# キーバインド
+
+# emacs 風キーバインドにする
+bindkey -e
+# fn+deleteが~になる
+bindkey "^[[3~"		delete-char
+bindkey "^[3;5~"	delete-char
+
+# ^R で履歴検索をするときに * でワイルドカードを使用出来るようにする
+bindkey '^R' history-incremental-pattern-search-backward
+
