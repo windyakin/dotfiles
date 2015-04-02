@@ -1,4 +1,9 @@
-export PATH="/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/MacGPG2/bin:/usr/texbin"
-export PATH="/usr/local/heroku/bin:$PATH"
-export PATH="/Users/Takuto/Library/Android/sdk/platform-tools:$PATH"
+case ${OSTYPE} in
+	darwin*)
+		export PATH="/usr/local/heroku/bin:$PATH"
+		export PATH="/Users/Takuto/Library/Android/sdk/platform-tools:$PATH"
+		;;
+	linux*)
+		;;
+esac
 

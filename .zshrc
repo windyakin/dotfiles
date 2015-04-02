@@ -13,6 +13,7 @@ function loadlib() {
 	fi
 }
 
+loadlib ~/dotfiles/zsh/export
 loadlib ~/dotfiles/zsh/style
 loadlib ~/dotfiles/zsh/history
 loadlib ~/dotfiles/zsh/setopt
