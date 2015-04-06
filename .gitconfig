@@ -1,0 +1,17 @@
+[color]
+	ui = auto
+[core]
+	excludesfile = ~/dotfiles/git/ignore
+	whitespace = cr-at-eol
+	pager = less -r
+[user]
+	name = windyakin
+	email = windyakin@gmail.com
+[pager]
+    log = ~/dotfiles/git/diff-highlight | less
+    show = ~/dotfiles/git/diff-highlight | less
+    diff = ~/dotfiles/git/diff-highlight | less
+[alias]
+	tree  = log --graph --decorate --oneline --abbrev-commit
+[credential]
+	helper = osxkeychain
