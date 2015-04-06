@@ -17,6 +17,9 @@ case ${OSTYPE} in
 		alias svn='/usr/local/bin/colorsvn'
 		;;
 	linux*)
+		alias ll='ls -alh --color=auto'
+		alias ls='ls --color=auto'
+		alias la='ls -a --color=auto'
 		;;
 esac
 
