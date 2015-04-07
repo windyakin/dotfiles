@@ -18,6 +18,6 @@ loadlib ~/dotfiles/zsh/style
 loadlib ~/dotfiles/zsh/history
 loadlib ~/dotfiles/zsh/setopt
 loadlib ~/dotfiles/zsh/theme
-loadlib ~/dotfiles/zsh/keybind
+loadlib ~/dotfiles/zsh/bindkey
 loadlib ~/dotfiles/zsh/alias
 
