@@ -8,9 +8,9 @@
 	name = windyakin
 	email = windyakin@gmail.com
 [pager]
-    log = ~/dotfiles/git/diff-highlight | less
-    show = ~/dotfiles/git/diff-highlight | less
-    diff = ~/dotfiles/git/diff-highlight | less
+    log = ~/dotfiles/git/diff-highlight | less -x4
+    show = ~/dotfiles/git/diff-highlight | less -x4
+    diff = ~/dotfiles/git/diff-highlight | less -x4
 [alias]
 	tree  = log --graph --decorate --oneline --abbrev-commit
 [credential]
