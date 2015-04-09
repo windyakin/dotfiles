@@ -43,6 +43,9 @@ alias gl='git log'
 alias gd='git diff'
 alias gsh='git show'
 
+# Bundler
+alias be='bundle exec'
+
 # sudo の後のコマンドでエイリアスを有効にする
 alias sudo='sudo '
 
