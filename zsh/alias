@@ -2,7 +2,7 @@
 # エイリアス
 
 case ${OSTYPE} in
-    darwin*)
+	darwin*)
 		alias ll='gls -alh --color=auto'
 		alias ls='gls --color=auto'
 		alias la='gls -a --color=auto'
@@ -17,6 +17,11 @@ case ${OSTYPE} in
 		alias svn='/usr/local/bin/colorsvn'
 		;;
 	linux*)
+		alias ll='ls -alh --color=auto'
+		alias ls='ls --color=auto'
+		alias la='ls -a --color=auto'
+		;;
+	cygwin*)
 		alias ll='ls -alh --color=auto'
 		alias ls='ls --color=auto'
 		alias la='ls -a --color=auto'
@@ -45,6 +50,9 @@ alias gsh='git show'
 
 # Bundler
 alias be='bundle exec'
+
+# jq
+alias json='jq -C '.' | less -R'
 
 # sudo の後のコマンドでエイリアスを有効にする
 alias sudo='sudo '

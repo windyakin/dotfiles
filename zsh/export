@@ -3,8 +3,11 @@ case ${OSTYPE} in
 		export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin"
 		export PATH="/usr/local/heroku/bin:$PATH"
 		export PATH="/Users/Takuto/Library/Android/sdk/platform-tools:$PATH"
+		export PATH="/Users/Takuto/.rbenv/shims:$PATH"
 		;;
 	linux*)
+		;;
+	cygwin*)
 		;;
 esac
 
