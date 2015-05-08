@@ -1,4 +1,12 @@
 ########################################
+# Cygwin用の設定
+case ${OSTYPE} in
+	cygwin*)
+		source ~/dotfiles/shell/mycolor.cygwincolors
+		;;
+esac
+
+########################################
 # プロンプト文字の設定
 PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %{${fg[blue]}%}%~%{${reset_color}%}
 %# "
