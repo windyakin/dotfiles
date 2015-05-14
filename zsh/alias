@@ -26,6 +26,11 @@ case ${OSTYPE} in
 		alias ls='ls --color=auto'
 		alias la='ls -a --color=auto'
 		;;
+	freebsd*)
+		alias ll='ls -alhG'
+		alias ls='ls -G'
+		alias la='ls -aG'
+		;;
 esac
 
 # clear display
