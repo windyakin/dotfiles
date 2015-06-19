@@ -1,0 +1,10 @@
+# コミットID表示
+set main-view = id date author commit-title:graph=yes,refs=yes
+# 強制横分割
+set vertical-split = no
+# 上下比率
+set split-view-height = 80%
+# タブサイズ
+set tab-size = 4
+# 空白無視
+set ignore-space = all
