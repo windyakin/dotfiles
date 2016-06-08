@@ -8,3 +8,5 @@ set split-view-height = 80%
 set tab-size = 4
 # 空白無視
 set ignore-space = all
+# 折り返し
+set wrap-lines = yes
