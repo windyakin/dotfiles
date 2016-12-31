@@ -13,13 +13,17 @@ function loadlib() {
 	fi
 }
 
-loadlib ~/dotfiles/zsh/export
-loadlib ~/dotfiles/zsh/style
-loadlib ~/dotfiles/zsh/history
-loadlib ~/dotfiles/zsh/setopt
-loadlib ~/dotfiles/zsh/theme
-loadlib ~/dotfiles/zsh/bindkey
-loadlib ~/dotfiles/zsh/alias
+loadlib $HOME/dotfiles/zsh/export
+loadlib $HOME/dotfiles/zsh/style
+loadlib $HOME/dotfiles/zsh/history
+loadlib $HOME/dotfiles/zsh/setopt
+loadlib $HOME/dotfiles/zsh/theme
+loadlib $HOME/dotfiles/zsh/bindkey
+loadlib $HOME/dotfiles/zsh/alias
+
+
+# added by travis gem
+[ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
 
 FPATH="$FPATH:$HOME/dotfiles/cool-peco"
 autoload -Uz cool-peco

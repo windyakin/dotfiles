@@ -2,11 +2,14 @@ case ${OSTYPE} in
 	darwin*)
 		export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin"
 		export PATH="/usr/local/heroku/bin:$PATH"
-		export PATH="/Users/Takuto/Library/Android/sdk/platform-tools:$PATH"
-		export PATH="/Users/Takuto/.rbenv/shims:$PATH"
+		export PATH="$HOME/Library/Android/sdk/platform-tools:$PATH"
+		export PATH="$HOME/.rbenv/shims:$PATH"
 		export PATH="$HOME/.nodebrew/current/bin:$PATH"
 		;;
 	linux*)
+		export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
+		export PATH="$HOME/.rbenv/shims:$PATH"
+		export PATH="$HOME/.nodebrew/current/bin:$PATH"
 		;;
 	cygwin*)
 		;;
