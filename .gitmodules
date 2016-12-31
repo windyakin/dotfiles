@@ -1,0 +1,3 @@
+[submodule "cool-peco"]
+	path = cool-peco
+	url = git@github.com:ryoppy/cool-peco.git
