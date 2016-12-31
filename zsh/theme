@@ -8,7 +8,7 @@ esac
 
 ########################################
 # プロンプト文字の設定
-PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %{${fg[blue]}%}%~%{${reset_color}%}
+PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %{${fg[yellow]}%}[%*]%{${reset_color}%} %{${fg[blue]}%}%~%{${reset_color}%}
 %# "
 
 ########################################
