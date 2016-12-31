@@ -21,3 +21,7 @@ loadlib ~/dotfiles/zsh/theme
 loadlib ~/dotfiles/zsh/bindkey
 loadlib ~/dotfiles/zsh/alias
 
+FPATH="$FPATH:$HOME/dotfiles/cool-peco"
+autoload -Uz cool-peco
+cool-peco
+
