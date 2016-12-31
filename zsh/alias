@@ -3,12 +3,12 @@
 
 case ${OSTYPE} in
 	darwin*)
-		alias ll='gls -alh --color=auto'
+		# use gnu version
 		alias ls='gls --color=auto'
-		alias la='gls -a --color=auto'
+		alias ll='ls -alh --color=auto'
+		alias la='ls -a --color=auto'
 		alias rm='rmtrash'
-		# Sublime Text
-		alias subl='/Applications/Sublime\ Text\.app/Contents/SharedSupport/bin/subl'
+		alias find='gfind'
 		# DNSFlush
 		alias dnsflush='dscacheutil -flushcache;sudo killall -HUP mDNSResponder'
 		# .DS_Storeを削除する
