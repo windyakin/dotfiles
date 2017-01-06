@@ -7,6 +7,8 @@ case ${OSTYPE} in
 	linux*)
 		export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
 		export PATH="$HOME/.linuxbrew/bin:$PATH"
+		export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
+		export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 		;;
 	cygwin*)
 		;;
@@ -14,4 +16,5 @@ esac
 
 export PATH="$HOME/.rbenv/shims:$PATH"
 export PATH="$HOME/.nodebrew/current/bin:$PATH"
+export PATH="$HOME/.local/:$PATH"
 
