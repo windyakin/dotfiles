@@ -52,10 +52,10 @@ let g:airline#extensions#tabline#tab_nr_type = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:Powerline_symbols = 'fancy'
 let g:airline_theme='badwolf'
-let g:airline_left_sep = '⮀'
-let g:airline_right_sep = '⮂'
-let g:airline#extensions#tabline#left_sep = '⮀'
-let g:airline#extensions#tabline#left_alt_sep = '⮀'
+let g:airline_left_sep = "\u2b80"
+let g:airline_right_sep = "\u2b82"
+let g:airline#extensions#tabline#left_sep = "\u2B80"
+let g:airline#extensions#tabline#left_alt_sep = "\u2B80"
 
 " Indent line
 NeoBundle 'Yggdroot/indentLine'
