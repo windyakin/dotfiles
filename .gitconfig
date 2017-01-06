@@ -1,7 +1,7 @@
 [color]
 	ui = auto
 [core]
-	excludesfile = $HOME/dotfiles/git/ignore
+	excludesfile = ~/dotfiles/git/ignore
 	whitespace = cr-at-eol
 	pager = less -r
 	editor = vim
@@ -9,9 +9,9 @@
 	name = windyakin
 	email = windyakin@gmail.com
 [pager]
-  log = $HOME/dotfiles/git/diff-highlight | less -x4
-  show = $HOME/dotfiles/git/diff-highlight | less -x4
-  diff = $HOME/dotfiles/git/diff-highlight | less -x4
+	log = ~/dotfiles/git/diff-highlight | less -x4
+  show = ~/dotfiles/git/diff-highlight | less -x4
+  diff = ~/dotfiles/git/diff-highlight | less -x4
 [alias]
 	tree  = log --graph --decorate --oneline --abbrev-commit
 [diff]
