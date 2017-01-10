@@ -14,5 +14,5 @@
   diff = ~/dotfiles/git/diff-highlight | less -x4
 [alias]
 	tree  = log --graph --decorate --oneline --abbrev-commit
-[diff]
+[merge]
 	tool = vimdiff
