@@ -58,8 +58,7 @@ msg "Submodules update..."
 git submodule update --init --recursive > /dev/null
 msg "${SUCCESS} Submodules updated!"
 
-chmod +x $HOME/dotfiles/cool-peco/cool-peco
-msg "${SUCCESS} Added execute authority cool-peco"
+add_execute_authority $HOME/dotfiles/cool-peco/cool-peco
 
 # ツール群存在チェック
 
