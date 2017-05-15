@@ -5,15 +5,18 @@ ESCEND=m
 ESCOFF="\033[0m"
 
 SUCCESS="${ESC}32${ESCEND}Success${ESCOFF}"
+INFO="${ESC}36${ESCEND}Info...${ESCOFF}"
 SKIP="${ESC}34${ESCEND}Skip...${ESCOFF}"
 WARNING="${ESC}33${ESCEND}Warning${ESCOFF}"
 FAILED="${ESC}31${ESCEND}FAILED!${ESCOFF}"
 
 function msg() {
-  echo -e "[$(date +'%Y-%m-%d %H:%M:%S')] $@" >&1
+  local MESSAGE=$(echo $@ | sed -e "s/\\\n/\n                              /g")
+  echo -e "[$(date +'%Y-%m-%d %H:%M:%S')] ${MESSAGE}" >&1
 }
 
 function err() {
+  local MESSAGE=$(echo $@ | sed -e "s/\\\n/\n                              /g")
   echo -e "[$(date +'%Y-%m-%d %H:%M:%S')] ${FAILED} $@" >&2
 }
 
@@ -54,7 +57,7 @@ make_symbolic_link $HOME/.tigrc $HOME/dotfiles/.tigrc
 mkdir -p $HOME/.peco
 make_symbolic_link $HOME/.peco/config.json $HOME/dotfiles/peco/config.json
 
-msg "Submodules update..."
+msg "${INFO} Submodules update..."
 git submodule update --init --recursive > /dev/null
 msg "${SUCCESS} Submodules updated!"
 
@@ -62,23 +65,22 @@ add_execute_authority $HOME/dotfiles/cool-peco/cool-peco
 
 # ツール群存在チェック
 
+if [ ! -x "$(command -v brew)" ]; then
+  BREW_INSTALL_MSG="${WARNING} This environment is not installed 'brew'"
+  case ${OSTYPE} in
+    darwin*)
+      msg "${BREW_INSTALL_MSG}\nGet Here! ==> ${ESC}4${ESCEND}https://brew.sh/${ESCOFF}"
+    ;;
+    linux*)
+      msg "${BREW_INSTALL_MSG}\nGet Here! ==> ${ESC}4${ESCEND}http://linuxbrew.sh/${ESCOFF}"
+    ;;
+  esac
+fi
+
 if [ ! -x "$(command -v peco)" ]; then
-  msg "${WARNING} This environment is not installed 'peco'"
-  echo -e "Get Here! ==> ${ESC}4${ESCEND}https://github.com/peco/peco/releases${ESCOFF}"
+  msg "${WARNING} This environment is not installed 'peco'\nPlease install by Homebrew"
 fi
 
 if [ ! -x "$(command -v tig)" ]; then
-  msg "${WARNING} This environment is not installed 'tig'"
-fi
-
-if [ ! -x "$(command -v brew)" ]; then
-  msg "${WARNING} This environment is not installed 'brew'"
-  case ${OSTYPE} in
-    darwin*)
-      echo -e "Get Here! ==> ${ESC}4${ESCEND}https://brew.sh/${ESCOFF}"
-    ;;
-    linux*)
-      echo -e "Get Here! ==> ${ESC}4${ESCEND}http://linuxbrew.sh/${ESCOFF}"
-    ;;
-  esac
+  msg "${WARNING} This environment is not installed 'tig'\nPlease install by Homebrew"
 fi
