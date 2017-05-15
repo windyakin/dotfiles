@@ -1,5 +1,7 @@
 FROM ubuntu:latest
 
+ARG USERNAME
+
 RUN sed -i.bak -e "s%http://archive.ubuntu.com/ubuntu/%http://ftp.jaist.ac.jp/pub/Linux/ubuntu/%g" /etc/apt/sources.list
 
 RUN apt-get update \
@@ -18,22 +20,22 @@ RUN echo "Asia/Tokyo" > /etc/timezone && \
     rm /etc/localtime && \
     dpkg-reconfigure -f noninteractive tzdata
 
-# adduser windyakin:windyakin with password 'windyakin'
-RUN groupadd -g 1000 windyakin \
-   && useradd -g windyakin -G sudo -m -s /bin/bash windyakin \
-   && echo 'windyakin:windyakin' | chpasswd
+# adduser ${USERNAME}:${USERNAME} with password '${USERNAME}'
+RUN groupadd -g 1000 ${USERNAME} \
+   && useradd -g ${USERNAME} -G sudo -m -s /bin/bash ${USERNAME} \
+   && echo "${USERNAME}:${USERNAME}" | chpasswd
 
-RUN echo 'Defaults visiblepw' >> /etc/sudoers
-RUN echo 'windyakin ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+RUN echo "Defaults visiblepw" >> /etc/sudoers
+RUN echo "${USERNAME} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
-RUN git clone https://github.com/Linuxbrew/brew.git /home/windyakin/.linuxbrew \
-  && chown -R windyakin:windyakin /home/windyakin/.linuxbrew \
-  && sudo -u windyakin echo "PATH=/home/windyakin/.linuxbrew/bin:/home/windyakin/.linuxbrew/sbin:$PATH" > /home/windyakin/.bashrc
+RUN git clone https://github.com/Linuxbrew/brew.git /home/${USERNAME}/.linuxbrew \
+  && chown -R ${USERNAME}:${USERNAME} /home/${USERNAME}/.linuxbrew \
+  && sudo -u ${USERNAME} echo "PATH=/home/${USERNAME}/.linuxbrew/bin:/home/${USERNAME}/.linuxbrew/sbin:$PATH" > /home/${USERNAME}/.bashrc
 
-ADD . /home/windyakin/dotfiles
-RUN chown -R windyakin:windyakin /home/windyakin/dotfiles \
-  && sudo -u windyakin -i /home/windyakin/dotfiles/setup.sh
+ADD . /home/${USERNAME}/dotfiles
+RUN chown -R ${USERNAME}:${USERNAME} /home/${USERNAME}/dotfiles \
+  && sudo -u ${USERNAME} -i /home/${USERNAME}/dotfiles/setup.sh
 
-USER windyakin
-WORKDIR /home/windyakin/
+USER ${USERNAME}
+WORKDIR /home/${USERNAME}/
 CMD ["zsh"]
