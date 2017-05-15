@@ -10,7 +10,7 @@ bindkey "^[3;5~" delete-char
 bindkey "\e[3~" delete-char
 
 # ^R で履歴検索をするときに * でワイルドカードを使用出来るようにする
-bindkey '^R' cool-peco-history 
+bindkey '^R' cool-peco-history
 
 # HomeキーとかEndキーを使えるようにする
 bindkey "^[[1~" beginning-of-line # home on OS X (with custom terminal settings)
@@ -19,3 +19,7 @@ bindkey "^[OH" beginning-of-line # home on linux
 bindkey "^[[4~" end-of-line # end on OS X (with custom terminal settings)
 bindkey "^[OF" end-of-line # end on linux
 bindkey "^[[1;5C" end-of-line # ctrl+right on linux
+
+# 単語移動
+bindkey "^F" forward-word
+bindkey "^B" backward-word
