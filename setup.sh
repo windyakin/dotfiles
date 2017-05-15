@@ -88,3 +88,4 @@ fi
 command_install_check peco
 command_install_check tig
 command_install_check rbenv
+command_install_check nodebrew
