@@ -32,4 +32,7 @@ cool-peco
 if [ -f $HOME/dotfiles/zsh-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
   source $HOME/dotfiles/zsh-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
+if [ -f $HOME/dotfiles/zsh-plugins/zsh-completions/zsh-completions.plugin.zsh ]; then
+  source $HOME/dotfiles/zsh-plugins/zsh-completions/zsh-completions.plugin.zsh
+fi
 
