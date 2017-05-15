@@ -4,6 +4,8 @@ ESC="\033["
 ESCEND=m
 ESCOFF="\033[0m"
 
+WORKDIR=`dirname "${0}"`
+
 SUCCESS="${ESC}32${ESCEND}Success${ESCOFF}"
 INFO="${ESC}36${ESCEND}Info...${ESCOFF}"
 SKIP="${ESC}34${ESCEND}Skip...${ESCOFF}"
@@ -64,7 +66,7 @@ mkdir -p $HOME/.peco
 make_symbolic_link $HOME/.peco/config.json $HOME/dotfiles/peco/config.json
 
 msg "${INFO} Submodules update..."
-git submodule update --init --recursive > /dev/null
+cd ${WORKDIR} && git submodule update --init --recursive > /dev/null
 msg "${SUCCESS} Submodules updated!"
 
 add_execute_authority $HOME/dotfiles/cool-peco/cool-peco
