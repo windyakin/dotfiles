@@ -23,7 +23,7 @@ function err() {
 function make_symbolic_link() {
   if [ ! -e $1 ]; then
     ln -s $2 $1
-    if [ $? eq 0 ]; then
+    if [ $? -eq 0 ]; then
       msg "${SUCCESS} Make symbolic link $1"
     else
       err "Can not make symbolic link $1"
@@ -37,7 +37,7 @@ function make_symbolic_link() {
 function add_execute_authority() {
   if [ ! -x $1 ]; then
     chmod +x $1
-    if [ $? eq 0 ]; then
+    if [ $? -eq 0 ]; then
       msg "${SUCCESS} Add execute authority $1"
     else
       err "Can not add execute authority $1"
@@ -45,6 +45,12 @@ function add_execute_authority() {
     fi
   else
     msg "${SKIP} Add execute authority $1"
+  fi
+}
+
+function command_install_check() {
+  if [ ! -x "$(command -v $1)" ]; then
+    msg "${WARNING} This environment is not installed '$1'\nPlease install by Homebrew"
   fi
 }
 
@@ -77,10 +83,6 @@ if [ ! -x "$(command -v brew)" ]; then
   esac
 fi
 
-if [ ! -x "$(command -v peco)" ]; then
-  msg "${WARNING} This environment is not installed 'peco'\nPlease install by Homebrew"
-fi
-
-if [ ! -x "$(command -v tig)" ]; then
-  msg "${WARNING} This environment is not installed 'tig'\nPlease install by Homebrew"
-fi
+command_install_check peco
+command_install_check tig
+command_install_check rbenv
