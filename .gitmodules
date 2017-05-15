@@ -1,6 +1,6 @@
 [submodule "cool-peco"]
 	path = cool-peco
-	url = git@github.com:ryoppy/cool-peco.git
+	url = https://github.com/ryoppy/cool-peco.git
 [submodule "zsh-plugins/zsh-syntax-highlighting"]
 	path = zsh-plugins/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
