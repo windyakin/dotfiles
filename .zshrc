@@ -29,3 +29,7 @@ FPATH="$FPATH:$HOME/dotfiles/cool-peco"
 autoload -Uz cool-peco
 cool-peco
 
+if [ -f $HOME/dotfiles/zsh-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+  source $HOME/dotfiles/zsh-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
