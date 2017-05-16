@@ -1,6 +1,6 @@
-FROM ubuntu:latest
+FROM ubuntu:xenial
 
-ARG USERNAME
+ARG USERNAME=windyakin
 
 RUN sed -i.bak -e "s%http://archive.ubuntu.com/ubuntu/%http://ftp.jaist.ac.jp/pub/Linux/ubuntu/%g" /etc/apt/sources.list
 
@@ -9,16 +9,19 @@ RUN apt-get update \
    && apt-get install -y sudo git zsh software-properties-common build-essential curl file python-setuptools ruby \
    && rm -rf /var/lib/apt/lists/*
 
-# For jp_JP.UTF-8
-RUN locale-gen ja_JP.UTF-8
+# For jp_JP.UTF-8 and JST(Asia/Tokyo)
+ENV TZ Asia/Tokyo
 ENV LANG ja_JP.UTF-8
 ENV LANGUAGE ja_JP:en
 ENV LC_ALL ja_JP.UTF-8
-
-# set timezone for JST
-RUN echo "Asia/Tokyo" > /etc/timezone && \
-    rm /etc/localtime && \
-    dpkg-reconfigure -f noninteractive tzdata
+RUN apt-get update \
+  && apt-get install -y language-pack-ja tzdata \
+  && rm -rf /var/lib/apt/lists/* \
+  && update-locale LANG=ja_JP.UTF-8 LANGUAGE="ja_JP:ja" \
+  && echo "${TZ}" > /etc/timezone \
+  && rm /etc/localtime \
+  && ln -s /usr/share/zoneinfo/Asia/Tokyo /etc/localtime \
+  && dpkg-reconfigure -f noninteractive tzdata
 
 # adduser ${USERNAME}:${USERNAME} with password '${USERNAME}'
 RUN groupadd -g 1000 ${USERNAME} \
