@@ -1,0 +1,8 @@
+version: '2'
+
+services:
+  dotfiles:
+    image: windyakin_dotfiles
+    build: .
+    container_name: windyakin_dotfiles_container
+    hostname: windyakin-dotfiles
