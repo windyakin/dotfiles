@@ -13,7 +13,7 @@ windyakin の dotfiles です。
 Docker ホスト上で立ち上げるには以下のコマンド
 
 ```
-$ docker-compose run --rm dotfiles
+$ docker run -it --rm windyakin/dotfiles
 ```
 
 ### on Docker Container (Option)
