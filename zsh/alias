@@ -65,5 +65,6 @@ alias sudo='sudo '
 # peco
 alias ff='cool-peco-filename-search'
 alias gbb='cool-peco-git-checkout'
+alias rt='cool-peco-rails-test'
 alias gll='cool-peco-git-log'
 

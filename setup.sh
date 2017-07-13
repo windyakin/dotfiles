@@ -71,6 +71,11 @@ msg "${SUCCESS} Submodules updated!"
 
 add_execute_authority $WORKDIR/cool-peco/cool-peco
 
+# ファイルをコピーする
+msg "${INFO} Copy peco custom functions..."
+cp $WORKDIR/peco/customs/* $WORKDIR/cool-peco/customs
+msg "${SUCCESS} Copied!"
+
 # ツール群存在チェック
 
 if [ ! -x "$(command -v brew)" ]; then
