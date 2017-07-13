@@ -58,18 +58,18 @@ function command_install_check() {
 
 # シンボリックリンクを貼る
 
-make_symbolic_link $HOME/.zshrc $HOME/dotfiles/.zshrc
-make_symbolic_link $HOME/.gitconfig $HOME/dotfiles/.gitconfig
-make_symbolic_link $HOME/.tigrc $HOME/dotfiles/.tigrc
+make_symbolic_link $HOME/.zshrc $WORKDIR/.zshrc
+make_symbolic_link $HOME/.gitconfig $WORKDIR/.gitconfig
+make_symbolic_link $HOME/.tigrc $WORKDIR/.tigrc
 
 mkdir -p $HOME/.peco
-make_symbolic_link $HOME/.peco/config.json $HOME/dotfiles/peco/config.json
+make_symbolic_link $HOME/.peco/config.json $WORKDIR/peco/config.json
 
 msg "${INFO} Submodules update..."
-cd ${WORKDIR} && git submodule update --init --recursive > /dev/null
+cd $WORKDIR && git submodule update --init --recursive > /dev/null
 msg "${SUCCESS} Submodules updated!"
 
-add_execute_authority $HOME/dotfiles/cool-peco/cool-peco
+add_execute_authority $WORKDIR/cool-peco/cool-peco
 
 # ツール群存在チェック
 
