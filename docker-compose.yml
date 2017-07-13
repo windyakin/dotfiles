@@ -6,3 +6,5 @@ services:
     build: .
     container_name: windyakin_dotfiles_container
     hostname: windyakin-dotfiles
+    tty: true
+    stdin_open: true
