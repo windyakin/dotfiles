@@ -45,17 +45,15 @@ autocmd vimenter * if !argc() | NERDTree | endif
 " Airline
 NeoBundle 'vim-airline/vim-airline'
 NeoBundle 'vim-airline/vim-airline-themes'
-"let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 0
 let g:airline#extensions#tabline#tab_nr_type = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:Powerline_symbols = 'fancy'
 let g:airline_theme='badwolf'
-let g:airline_left_sep = "\u2b80"
-let g:airline_right_sep = "\u2b82"
-let g:airline#extensions#tabline#left_sep = "\u2B80"
-let g:airline#extensions#tabline#left_alt_sep = "\u2B80"
+let g:airline#extensions#tabline#left_sep = ' '
+let g:airline#extensions#tabline#left_alt_sep = '|'
 
 " Indent line
 NeoBundle 'Yggdroot/indentLine'
@@ -97,6 +95,9 @@ set shiftwidth=2
 
 " which wrap
 set whichwrap=b,s,h,l,<,>,[,]
+
+" wide char
+set ambiwidth=double
 
 " backspace
 set backspace=indent,eol
