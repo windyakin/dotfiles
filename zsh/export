@@ -9,6 +9,9 @@ case ${OSTYPE} in
 		export PATH="$HOME/.linuxbrew/bin:$PATH"
 		export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
 		export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
+		export USE_CCACHE=1
+		export CCACHE_DIR=~/.ccache
+		export set COMPILER='ccache'
 		;;
 	cygwin*)
 		;;
