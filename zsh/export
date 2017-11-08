@@ -12,6 +12,8 @@ case ${OSTYPE} in
 		export USE_CCACHE=1
 		export CCACHE_DIR=~/.ccache
 		export COMPILER=ccache
+		export UID=$(id -u)
+		export GID=$(id -g)
 		;;
 	cygwin*)
 		;;
