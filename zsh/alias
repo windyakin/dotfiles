@@ -68,3 +68,6 @@ alias gbb='cool-peco-git-checkout'
 alias rt='cool-peco-rails-test'
 alias gll='cool-peco-git-log'
 
+# Docker
+alias dc='docker-compose'
+
