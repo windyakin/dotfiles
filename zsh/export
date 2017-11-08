@@ -11,7 +11,7 @@ case ${OSTYPE} in
 		export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 		export USE_CCACHE=1
 		export CCACHE_DIR=~/.ccache
-		export set COMPILER='ccache'
+		export COMPILER=ccache
 		;;
 	cygwin*)
 		;;
