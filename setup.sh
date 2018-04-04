@@ -4,7 +4,11 @@ ESC="\033["
 ESCEND=m
 ESCOFF="\033[0m"
 
-WORKDIR=`dirname "${0}"`
+WORKDIR=$(cd $(dirname "${0}") && pwd)
+
+if [ -z "${HOME}" ]; then
+  HOME=$(cd ~ && pwd)
+fi
 
 SUCCESS="${ESC}32${ESCEND}Success${ESCOFF}"
 INFO="${ESC}36${ESCEND}Info...${ESCOFF}"
