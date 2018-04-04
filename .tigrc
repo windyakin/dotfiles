@@ -11,6 +11,6 @@ set ignore-space = all
 # 折り返し
 set wrap-lines = yes
 
-bind main R !git rebase -i %(commit)~
-bind diff R !git rebase -i %(commit)~
+bind main <Ctrl-r> !git rebase -i %(commit)~
+bind diff <Ctrl-r> !git rebase -i %(commit)~
 
