@@ -15,3 +15,4 @@ bind main <Ctrl-r> !git rebase -i %(commit)~
 bind diff <Ctrl-r> !git rebase -i %(commit)~
 
 bind main u scroll-page-up
+bind generic c @bash -c "echo -n '%(commit)' | pbcopy"
