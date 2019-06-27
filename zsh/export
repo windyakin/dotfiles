@@ -2,11 +2,12 @@ case ${OSTYPE} in
 	darwin*)
 		export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin"
 		export PATH="/usr/local/heroku/bin:$PATH"
+		export PATH="$HOME/google-cloud-sdk/bin:$PATH"
 		export PATH="$HOME/Library/Android/sdk/platform-tools:$PATH"
 		;;
 	linux*)
 		export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin"
-		export PATH="$HOME/.linuxbrew/bin:$PATH"
+		export PATH="$HOME/.linuxbrew/bin:/usr/local/opt/coreutils/libexec/gnubin:$PATH"
 		export MANPATH="$HOME/.linuxbrew/share/man:$MANPATH"
 		export INFOPATH="$HOME/.linuxbrew/share/info:$INFOPATH"
 		export USE_CCACHE=1
