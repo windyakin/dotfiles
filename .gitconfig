@@ -16,3 +16,5 @@
 	tree  = log --graph --decorate --oneline --abbrev-commit
 [merge]
 	tool = vimdiff
+[ghq]
+	root = ~/git
