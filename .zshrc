@@ -22,9 +22,6 @@ loadlib $HOME/dotfiles/zsh/bindkey
 loadlib $HOME/dotfiles/zsh/alias
 
 
-# added by travis gem
-[ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
-
 FPATH="$FPATH:$HOME/dotfiles/cool-peco"
 autoload -Uz cool-peco
 cool-peco
@@ -35,4 +32,3 @@ fi
 if [ -f $HOME/dotfiles/zsh-plugins/zsh-completions/zsh-completions.plugin.zsh ]; then
   source $HOME/dotfiles/zsh-plugins/zsh-completions/zsh-completions.plugin.zsh
 fi
-
