@@ -20,8 +20,6 @@ case ${OSTYPE} in
 		;;
 esac
 
-export PATH="$HOME/.rbenv/shims:$PATH"
-export PATH="$HOME/.nodebrew/current/bin:$PATH"
+eval "$(rbenv init -)"
+eval "$(nodenv init -)"
 export PATH="$HOME/.local:$PATH"
-export PATH="./node_modules/.bin:$PATH"
-
