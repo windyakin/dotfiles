@@ -11,10 +11,6 @@ case ${OSTYPE} in
 		alias find='gfind'
 		# DNSFlush
 		alias dnsflush='dscacheutil -flushcache;sudo killall -HUP mDNSResponder'
-		# .DS_Storeを削除する
-		alias nods='find . -name .DS_Store | xargs rm'
-		# SVN
-		alias svn='/usr/local/bin/colorsvn'
 		;;
 	linux*)
 		alias ll='ls -alh --color=auto'

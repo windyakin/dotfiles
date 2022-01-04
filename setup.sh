@@ -84,17 +84,12 @@ msg "${SUCCESS} Copied!"
 
 if [ ! -x "$(command -v brew)" ]; then
   BREW_INSTALL_MSG="${WARNING} This environment is not installed 'brew'"
-  case ${OSTYPE} in
-    darwin*)
-      msg "${BREW_INSTALL_MSG}\nGet Here! ==> ${ESC}4${ESCEND}https://brew.sh/${ESCOFF}"
-    ;;
-    linux*)
-      msg "${BREW_INSTALL_MSG}\nGet Here! ==> ${ESC}4${ESCEND}http://linuxbrew.sh/${ESCOFF}"
-    ;;
-  esac
+  msg "${BREW_INSTALL_MSG}\nGet Here! ==> ${ESC}4${ESCEND}https://brew.sh/${ESCOFF}"
 fi
 
 command_install_check peco
 command_install_check tig
 command_install_check rbenv
-command_install_check nodebrew
+command_install_check rmtrash
+command_install_check nodenv
+command_install_check direnv
