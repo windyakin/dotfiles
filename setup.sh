@@ -62,18 +62,19 @@ function command_install_check() {
 
 # シンボリックリンクを貼る
 
-make_symbolic_link $HOME/.zshrc $WORKDIR/.zshrc
-make_symbolic_link $HOME/.gitconfig $WORKDIR/.gitconfig
-make_symbolic_link $HOME/.tigrc $WORKDIR/.tigrc
+make_symbolic_link "${HOME}/.zshrc" "${WORKDIR}/.zshrc"
+make_symbolic_link "${HOME}/.gitconfig" "${WORKDIR}/.gitconfig"
+make_symbolic_link "${HOME}/.tigrc" "${WORKDIR}/.tigrc"
+make_symbolic_link "${HOME}/.tmux.conf" "${WORKDIR}/.tmux.conf"
 
-mkdir -p $HOME/.peco
-make_symbolic_link $HOME/.peco/config.json $WORKDIR/peco/config.json
+mkdir -p "${HOME}/.peco"
+make_symbolic_link "${HOME}/.peco/config.json" "${WORKDIR}/peco/config.json"
 
 msg "${INFO} Submodules update..."
-cd $WORKDIR && git submodule update --init --recursive > /dev/null
+cd "${WORKDIR}" && git submodule update --init --recursive > /dev/null
 msg "${SUCCESS} Submodules updated!"
 
-add_execute_authority $WORKDIR/cool-peco/cool-peco
+add_execute_authority "${WORKDIR}/cool-peco/cool-peco"
 
 # ファイルをコピーする
 msg "${INFO} Copy peco custom functions..."
