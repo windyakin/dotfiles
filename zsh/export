@@ -22,4 +22,5 @@ esac
 
 eval "$(rbenv init -)"
 eval "$(nodenv init -)"
+eval "$(direnv hook zsh)"
 export PATH="$HOME/.local:$PATH"
