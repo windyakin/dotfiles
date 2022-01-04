@@ -11,7 +11,7 @@ bindkey "\e[3~" delete-char
 
 # ^R で履歴検索をするときに * でワイルドカードを使用出来るようにする
 bindkey '^R' cool-peco-history
-bindkey '^G' cool-peco-ghq
+bindkey '^G' cool-peco-ghq-custom
 
 # HomeキーとかEndキーを使えるようにする
 bindkey "^[[1~" beginning-of-line # home on OS X (with custom terminal settings)

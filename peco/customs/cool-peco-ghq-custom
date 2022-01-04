@@ -1,0 +1,8 @@
+##
+# select git repository by ghq command
+#
+local res
+res=$(ghq list | peco)
+if [ -n "$res" ]; then
+  _cool-peco-insert-command-line "cd $(ghq root)/$res"
+fi
