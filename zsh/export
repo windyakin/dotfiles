@@ -1,6 +1,6 @@
 case ${OSTYPE} in
 	darwin*)
-		export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin"
+		export PATH="/opt/homebrew/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin"
 		export PATH="/usr/local/heroku/bin:$PATH"
 		export PATH="$HOME/google-cloud-sdk/bin:$PATH"
 		export PATH="$HOME/Library/Android/sdk/platform-tools:$PATH"
@@ -22,5 +22,8 @@ esac
 
 eval "$(rbenv init -)"
 eval "$(nodenv init -)"
+eval "$(goenv init -)"
+eval "$(pyenv init -)"
 eval "$(direnv hook zsh)"
 export PATH="$HOME/.local:$PATH"
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"

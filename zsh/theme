@@ -8,12 +8,13 @@ esac
 
 ########################################
 # プロンプト文字の設定
-PROMPT="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %{${fg[yellow]}%}[%*]%{${reset_color}%} %{${fg[blue]}%}%~%{${reset_color}%}
-%# "
+default_prompt="%{${fg[green]}%}[%n@%m]%{${reset_color}%} %{${fg[yellow]}%}[%D{%H:%M:%S}]%{${reset_color}%} %{${fg[blue]}%}%~%{${reset_color}%}"
 
 ########################################
 # リポジトリの状態表示
 
+PROMPT="$default_prompt
+%# "
 RPROMPT=""
 
 autoload -Uz vcs_info
@@ -167,13 +168,14 @@ fi
 
 function _update_vcs_info_msg() {
     local -a messages
-    local prompt
+    local vcs
+    local kube_context
 
     LANG=en_US.UTF-8 vcs_info
 
     if [[ -z ${vcs_info_msg_0_} ]]; then
         # vcs_info で何も取得していない場合はプロンプトを表示しない
-        prompt=""
+        vcs=""
     else
         # vcs_info で情報を取得した場合
         # $vcs_info_msg_0_ , $vcs_info_msg_1_ , $vcs_info_msg_2_ を
@@ -183,9 +185,22 @@ function _update_vcs_info_msg() {
         [[ -n "$vcs_info_msg_2_" ]] && messages+=( "%F{red}${vcs_info_msg_2_}%f" )
 
         # 間にスペースを入れて連結する
-        prompt="${(j: :)messages}"
+        vcs="${(j: :)messages}"
     fi
 
-    RPROMPT="$prompt"
+    if command -v kubectl >/dev/null 2>&1; then
+        kube_context=$(kubectl config current-context 2>/dev/null)
+        if [[ -n "$kube_context" ]]; then
+            kube_namespace=$(kubectl config view --minify --output 'jsonpath={..namespace}' 2>/dev/null)
+            [[ -z "$kube_namespace" ]] && kube_namespace="default"
+            kube_context="%{${fg[cyan]}%}[${kube_context}:${kube_namespace}]%{${reset_color}%}"
+        fi
+    else
+        kube_context=""
+    fi
+
+    PROMPT="${default_prompt} ${vcs} ${kube_context}
+%# "
 }
+
 add-zsh-hook precmd _update_vcs_info_msg
