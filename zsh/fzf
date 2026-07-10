@@ -1,0 +1,61 @@
+########################################
+# fzf
+
+export FZF_DEFAULT_OPTS='--height 40% --reverse'
+
+function _fzf-insert-command-line() {
+	if zle; then
+		BUFFER=$1
+		CURSOR=$#BUFFER
+		zle reset-prompt
+	else
+		print -z $1
+	fi
+}
+
+# コマンド履歴を検索する
+function fzf-history() {
+	local res
+	res=$(fc -l -n -r 1 | fzf --scheme=history --query "$LBUFFER")
+	_fzf-insert-command-line $res
+}
+zle -N fzf-history
+
+# ghq で管理しているリポジトリに移動する
+function fzf-ghq() {
+	local res
+	res=$(ghq list | fzf --scheme=path)
+	if [ -n "$res" ]; then
+		_fzf-insert-command-line "cd $(ghq root)/$res"
+	fi
+}
+zle -N fzf-ghq
+
+# ファイル名検索
+function fzf-filename-search() {
+	local res
+	res=$(find . -name "*${1}*" | grep -v "/\." | fzf --scheme=path)
+	_fzf-insert-command-line $res
+}
+
+# ブランチを選択して checkout する
+function fzf-git-checkout() {
+	local res
+	local branch=$(git branch -a | fzf --scheme=path | tr -d ' ')
+	if [ -n "$branch" ]; then
+		if [[ "$branch" =~ "remotes/" ]]; then
+			local b=$(echo $branch | awk -F'/' '{for(i=3;i<NF;i++){printf("%s%s",$i,OFS="/")}print $NF}')
+			res="git checkout -b '${b}' '${branch}'"
+		else
+			res="git checkout '${branch}'"
+		fi
+	fi
+	_fzf-insert-command-line $res
+}
+
+# git log からコミットハッシュを選択する
+function fzf-git-log() {
+	local res
+	res=$(git log --oneline --decorate=full | fzf --no-sort | awk '{print $1}')
+	_fzf-insert-command-line $res
+}

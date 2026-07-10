@@ -21,7 +21,7 @@ $ docker run -it --rm windyakin/dotfiles
 履歴検索などシェルに関連付けされているすべての機能を使用するには Linuxbrew から以下のソフトウェアをインストールします。
 
 ```
-$ brew install peco tig rbenv nodebrew
+$ brew install fzf tig rbenv nodebrew
 ```
 
 ## Author
