@@ -1,0 +1,126 @@
+# Starship prompt configuration
+
+format = """
+$username\
+$hostname\
+$time\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$kubernetes\
+$python\
+$nodejs\
+$golang\
+$ruby\
+$docker_context\
+$cmd_duration\
+$status\
+$line_break\
+$character"""
+
+add_newline = false
+
+[username]
+style_user = "green"
+style_root = "red"
+format = "[\\[$user]($style)"
+show_always = true
+
+[hostname]
+ssh_only = false
+format = "[@$hostname\\]]($style) "
+style = "green"
+
+[time]
+disabled = false
+format = "[\\[$time\\]]($style) "
+style = "yellow"
+time_format = "%T"
+
+[directory]
+style = "blue"
+format = "[$path]($style)[$read_only]($read_only_style) "
+truncation_length = 8
+truncate_to_repo = false
+
+[git_branch]
+format = "on [$symbol$branch(:$remote_branch)]($style) "
+style = "red"
+symbol = " "
+
+[git_commit]
+format = "[\\($hash$tag\\)]($style) "
+style = "green"
+only_detached = true
+tag_disabled = false
+
+[git_state]
+format = "\\([$state( $progress_current/$progress_total)]($style)\\) "
+style = "red"
+
+[git_status]
+format = "[$all_status$ahead_behind]($style) "
+style = "yellow"
+staged = "[+$count](green)"
+modified = "[*$count](yellow)"
+untracked = "[?$count](yellow)"
+ahead = "[p${count}](cyan)"
+behind = "[b${count}](magenta)"
+diverged = "[p${ahead_count} b${behind_count}](red)"
+stashed = "[:S${count}](blue)"
+deleted = "[x$count](red)"
+renamed = "[r$count](cyan)"
+conflicted = "[!$count](red)"
+
+[kubernetes]
+disabled = false
+format = "[$symbol$context(/$namespace)]($style) "
+style = "cyan"
+symbol = "☸ "
+
+[python]
+format = "[$symbol($version )(\\($virtualenv\\) )]($style)"
+style = "yellow"
+symbol = " "
+
+[nodejs]
+format = "[$symbol($version )]($style)"
+style = "green"
+symbol = " "
+
+[golang]
+format = "[$symbol($version )]($style)"
+style = "cyan"
+symbol = " "
+
+[ruby]
+format = "[$symbol($version )]($style)"
+style = "red"
+symbol = " "
+
+[docker_context]
+format = "[$symbol$context]($style) "
+style = "blue"
+symbol = " "
+only_with_files = true
+
+[cmd_duration]
+min_time = 3_000
+format = "took [$duration]($style) "
+style = "yellow"
+
+[status]
+disabled = false
+format = "[$symbol$status]($style) "
+style = "red"
+symbol = " "
+success_symbol = ""
+
+[line_break]
+disabled = false
+
+[character]
+success_symbol = "[%](green)"
+error_symbol = "[%](red)"

@@ -78,6 +78,18 @@ if [ ! -x "$(command -v brew)" ]; then
   msg "${BREW_INSTALL_MSG}\nGet Here! ==> ${ESC}4${ESCEND}https://brew.sh/${ESCOFF}"
 fi
 
+# Starship のインストール
+if [ -x "$(command -v brew)" ]; then
+  if [ ! -x "$(command -v starship)" ]; then
+    msg "${INFO} Installing starship..."
+    brew install starship
+    msg "${SUCCESS} starship installed!"
+  else
+    msg "${SKIP} starship is already installed"
+  fi
+fi
+
+command_install_check starship
 command_install_check fzf
 command_install_check tig
 command_install_check rbenv
