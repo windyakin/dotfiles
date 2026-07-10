@@ -23,6 +23,8 @@ esac
 eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(rbenv init -)"
 eval "$(nodenv init -)"
+eval "$(goenv init -)"
+eval "$(pyenv init -)"
 eval "$(direnv hook zsh)"
 export PATH="$HOME/.local:$PATH"
 export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
