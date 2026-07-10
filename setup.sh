@@ -67,19 +67,9 @@ make_symbolic_link "${HOME}/.gitconfig" "${WORKDIR}/.gitconfig"
 make_symbolic_link "${HOME}/.tigrc" "${WORKDIR}/.tigrc"
 make_symbolic_link "${HOME}/.tmux.conf" "${WORKDIR}/.tmux.conf"
 
-mkdir -p "${HOME}/.peco"
-make_symbolic_link "${HOME}/.peco/config.json" "${WORKDIR}/peco/config.json"
-
 msg "${INFO} Submodules update..."
 cd "${WORKDIR}" && git submodule update --init --recursive > /dev/null
 msg "${SUCCESS} Submodules updated!"
-
-add_execute_authority "${WORKDIR}/cool-peco/cool-peco"
-
-# ファイルをコピーする
-msg "${INFO} Copy peco custom functions..."
-cp $WORKDIR/peco/customs/* $WORKDIR/cool-peco/customs
-msg "${SUCCESS} Copied!"
 
 # ツール群存在チェック
 
@@ -88,7 +78,7 @@ if [ ! -x "$(command -v brew)" ]; then
   msg "${BREW_INSTALL_MSG}\nGet Here! ==> ${ESC}4${ESCEND}https://brew.sh/${ESCOFF}"
 fi
 
-command_install_check peco
+command_install_check fzf
 command_install_check tig
 command_install_check rbenv
 command_install_check rmtrash

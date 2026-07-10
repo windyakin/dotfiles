@@ -18,13 +18,9 @@ loadlib $HOME/dotfiles/zsh/style
 loadlib $HOME/dotfiles/zsh/history
 loadlib $HOME/dotfiles/zsh/setopt
 loadlib $HOME/dotfiles/zsh/theme
+loadlib $HOME/dotfiles/zsh/fzf
 loadlib $HOME/dotfiles/zsh/bindkey
 loadlib $HOME/dotfiles/zsh/alias
-
-
-FPATH="$FPATH:$HOME/dotfiles/cool-peco"
-autoload -Uz cool-peco
-cool-peco
 
 if [ -f $HOME/dotfiles/zsh-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
   source $HOME/dotfiles/zsh-plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

@@ -58,11 +58,10 @@ alias json='jq -C '.' | less -R'
 # sudo の後のコマンドでエイリアスを有効にする
 alias sudo='sudo '
 
-# peco
-alias ff='cool-peco-filename-search'
-alias gbb='cool-peco-git-checkout'
-alias rt='cool-peco-rails-test'
-alias gll='cool-peco-git-log'
+# fzf
+alias ff='fzf-filename-search'
+alias gbb='fzf-git-checkout'
+alias gll='fzf-git-log'
 
 # Docker
 alias dc='docker-compose'
