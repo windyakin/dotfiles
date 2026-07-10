@@ -24,3 +24,7 @@ bindkey "^[[1;5C" end-of-line # ctrl+right on linux
 # 単語移動
 bindkey "^F" forward-word
 bindkey "^B" backward-word
+
+# 複数行コマンド内では行移動、単一行では履歴移動
+bindkey "^[[A" up-line-or-history
+bindkey "^[[B" down-line-or-history
